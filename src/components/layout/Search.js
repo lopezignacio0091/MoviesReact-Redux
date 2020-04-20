@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import GithubContext from '../../components/context/github/githubContext'
 
 //antes era una clase class Search bla bla
 // no usamos this.props porque lo deconstruimos en los parametros
-const Search  = ({clearUsers , showClear, searchUsers, setAlert}) => {
+const Search  = ({clearUsers , showClear, setAlert}) => {
+
+    //inicializamos el contexto de la app
+    const githubContext = useContext(GithubContext);
     // importamos useState
     //deconstruimos nuestro estado segun la cantidad de atributos que tenga
     const [text,setText] = useState('');
@@ -26,7 +30,7 @@ const Search  = ({clearUsers , showClear, searchUsers, setAlert}) => {
             setAlert('Please enter Something','light');
         }else{
         //pasamos el resultado del search para rriba como props
-            searchUsers(text);
+            githubContext.searchUsers(text);
             setText('');
         }
     }
@@ -57,7 +61,6 @@ const Search  = ({clearUsers , showClear, searchUsers, setAlert}) => {
 
 // lo ponemos aca porqeu cambiamos de clase a componente funcional
 Search.propTypes = {
-    searchUsers : PropTypes.func.isRequired,
     clearUsers : PropTypes.func.isRequired,
     showClear : PropTypes.bool.isRequired,
     setAlert : PropTypes.func.isRequired,

@@ -7,6 +7,8 @@ import Users from './components/layout/Users/Users';
 import User from './components/layout/Users/User';
 import axios from 'axios';
 import Alert from './components/layout/Alert'
+
+import GithubState from './components/context/github/GithubState'
 //import Calculator from './components/layout/Calculator';
 //import Toggle from './components/layout/Toggle';
 //import Clock from './components/layout/Clock'
@@ -36,20 +38,21 @@ const App = () => {
   }*/
 
     //hacemos una llamada asincrona para buscar todos los usuarios del search
-  const searchUsers = async value => {
-    setLoading(true);
-    //this.setState({loading: true});
-    //utilizamos el endpoint para busqueda, manteniendo el clientid y clientsecret para multiples peticiones  
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${value}&client_id=
-      ${process.env.REACT_APP_GITHUB_ID}
-      &client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
+    // lo llevamos a github state donde manejamos las llamadas a los eventos
+  // const searchUsers = async value => {
+  //   setLoading(true);
+  //   //this.setState({loading: true});
+  //   //utilizamos el endpoint para busqueda, manteniendo el clientid y clientsecret para multiples peticiones  
+  //   const res = await axios.get(
+  //     `https://api.github.com/search/users?q=${value}&client_id=
+  //     ${process.env.REACT_APP_GITHUB_ID}
+  //     &client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
     
-    //modificamos el state con los datos obtenidos
-    //this.setState({loading: false, users: res.data.items});
-    setLoading(false);
-    setUsers(res.data.items);
-  }
+  //   //modificamos el state con los datos obtenidos
+  //   //this.setState({loading: false, users: res.data.items});
+  //   setLoading(false);
+  //   setUsers(res.data.items);
+  // }
 
   const getUser = async username => {
 //    this.setState({loading: true});
@@ -83,9 +86,9 @@ const App = () => {
 //    const {users, user, loading, alert} = this.state;
     
     return (
-      //todo debe estar dentro de router para que funcione
+      //hacemos el wrap con el context api 
+      <GithubState>
       <Router>
-      
         <div className="App">   
           <Navbar />
             <div className='container'>
@@ -97,8 +100,7 @@ const App = () => {
                 path='/' 
                 render={props => (
                   <Fragment>
-                    <Search 
-                      searchUsers={searchUsers} 
+                    <Search  
                       clearUsers={clearUsers} 
                       showClear={ users.length > 0 ? true : false}
                       setAlert = {setMsgAlert} />
@@ -120,6 +122,7 @@ const App = () => {
             </div>
         </div>
       </Router>
+      </GithubState>
     );
 
     /* return (

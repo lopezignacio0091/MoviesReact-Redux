@@ -53,7 +53,7 @@ const App = () => {
   //   setUsers(res.data.items);
   // }
 
-  const getUser = async username => {
+  /* const getUser = async username => {
 //    this.setState({loading: true});
     setLoading(true);
       
@@ -63,7 +63,7 @@ const App = () => {
     //this.setState({loading: false, user: res.data});
     setLoading(false);
     setUser(res.data);
-  }
+  }*/
 /*
   const clearUsers = () => {
     //this.setState({users : [], loading: false});
@@ -113,7 +113,7 @@ const App = () => {
                 exact 
                 path='/user/:login' 
                 render={props => (
-                  <User {...props} getUser={getUser} loading={loading} user={user} />       
+                  <User {...props} />       
                                )} />
               </Switch>
             </div>

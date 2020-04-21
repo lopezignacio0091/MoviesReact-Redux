@@ -103,7 +103,7 @@ const App = () => {
                     <Search  
                       setAlert = {setMsgAlert} />
 
-                    <Users loading={loading} users={users}/>
+                    <Users />
         
                   </Fragment>
                 )} />

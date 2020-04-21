@@ -1,13 +1,13 @@
 import React, {Fragment, useEffect, useContext } from 'react';
 import Spinner from './Spinner';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import GithubContext from '../../context/github/githubContext';
 
 //cambiamos la clase a componente funcional
 //utilizaremos useEffect para reemplazar el componentDidMount y cualquier otra accion que se lleve a cabo
 
 //podriamos descontruir aun mas user
-const User = () => {
+const User = ({match}) => {
 
     const githubContext = useContext(GithubContext);
     const {user, loading, getUser} = githubContext;
@@ -15,7 +15,7 @@ const User = () => {
     //ejecuta cada accion que se lleva a cabo en el componente actual
     //debemos definir cuando queeremos que corra o la cantidad de veces sino entramos en un loop infinito
     useEffect(() => {
-        getUser(this.props.match.params.login);
+        getUser(match.params.login);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]); // con esto decimos que se ejecute una unica vez
 

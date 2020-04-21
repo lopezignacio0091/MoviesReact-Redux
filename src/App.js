@@ -5,7 +5,6 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import About from './components/pages/About'
 import Users from './components/layout/Users/Users';
 import User from './components/layout/Users/User';
-import axios from 'axios';
 import Alert from './components/layout/Alert'
 
 import GithubState from './components/context/github/GithubState'

@@ -20,13 +20,14 @@ export default (state,action) => {
             return{
                 ...state,
                 loading: false,
-                users: action.payload
+                user: action.payload
             }
         case CLEAR_USERS:
             return{
                 ...state,
                 loading: false,
-                users: []
+                users: [],
+                user: {}
             }
         case SET_LOADING:
             return{

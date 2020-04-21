@@ -8,7 +8,7 @@ const Search  = ({ setAlert }) => {
 
     //inicializamos el contexto de la app
     const githubContext = useContext(GithubContext);
-    const { users } = githubContext;
+    const { users, clearUsers } = githubContext;
     // importamos useState
     //deconstruimos nuestro estado segun la cantidad de atributos que tenga
     const [text,setText] = useState('');
@@ -62,7 +62,6 @@ const Search  = ({ setAlert }) => {
 
 // lo ponemos aca porqeu cambiamos de clase a componente funcional
 Search.propTypes = {
-
     setAlert : PropTypes.func.isRequired,
 }
 

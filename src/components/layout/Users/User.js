@@ -1,15 +1,16 @@
-import React, {Fragment, useEffect } from 'react';
+import React, {Fragment, useEffect, useContext } from 'react';
 import Spinner from './Spinner';
-import PropTypes from 'prop-types';
 import { Link} from 'react-router-dom';
-
+import GithubContext from '../../context/github/githubContext';
 
 //cambiamos la clase a componente funcional
 //utilizaremos useEffect para reemplazar el componentDidMount y cualquier otra accion que se lleve a cabo
 
 //podriamos descontruir aun mas user
-const User = ({user, loading, getUser}) => {
+const User = () => {
 
+    const githubContext = useContext(GithubContext);
+    const {user, loading, getUser} = githubContext;
     //useEffect cumpliria el rol de componentDidMount o compoenentDidUpdate
     //ejecuta cada accion que se lleva a cabo en el componente actual
     //debemos definir cuando queeremos que corra o la cantidad de veces sino entramos en un loop infinito
@@ -74,12 +75,5 @@ const User = ({user, loading, getUser}) => {
             </Fragment>
         )
 }
-
-User.propTypes = {
-    loading : PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
-    getUser : PropTypes.func.isRequired,
-}
-
 
 export default User

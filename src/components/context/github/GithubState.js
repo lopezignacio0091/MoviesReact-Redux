@@ -8,8 +8,7 @@ import {
     SEARCH_USERS,
     SET_LOADING,
     CLEAR_USERS,
-    GET_USER,
-    GET_REPOS
+    GET_USER
 } from '../types';
 
 const GithubState = props => {
@@ -25,7 +24,19 @@ const GithubState = props => {
     const [state, dispatch] = useReducer(GithubReducer, initialState);
 
     // aca abajo definimos la implementacion de nuestras funciones por type
-    
+    const getUser = async username => {
+        //    this.setState({loading: true});
+        setLoading();
+            
+        const res = await axios.get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
+        
+        //modificamos el state con los datos obtenidos
+        //this.setState({loading: false, user: res.data});
+        dispatch({
+            type: GET_USER,
+            payload: res.data
+        })
+    }
 
     const clearUsers = () => {       
         setLoading();
@@ -63,7 +74,8 @@ const GithubState = props => {
         user: state.user,
         loading: state.loading,
         searchUsers,
-        clearUsers
+        clearUsers,
+        getUser
     }}
     >
         {props.children}

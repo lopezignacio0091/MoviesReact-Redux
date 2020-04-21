@@ -18,56 +18,6 @@ const App = () => {
 
   const [alert,setAlert] = useState(null);
 
-  
-/*  async componentDidMount(){
-
-    this.setState({loading: true});
-
-    //una FORMA
-    /*axios
-      .get('https://api.github.com/users')
-      .then(res => console.log(res.data));*/
-
-  /*  const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_ID}&
-                                                              client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
-    this.setState({loading: false, users: res.data});
-  }*/
-
-    //hacemos una llamada asincrona para buscar todos los usuarios del search
-    // lo llevamos a github state donde manejamos las llamadas a los eventos
-  // const searchUsers = async value => {
-  //   setLoading(true);
-  //   //this.setState({loading: true});
-  //   //utilizamos el endpoint para busqueda, manteniendo el clientid y clientsecret para multiples peticiones  
-  //   const res = await axios.get(
-  //     `https://api.github.com/search/users?q=${value}&client_id=
-  //     ${process.env.REACT_APP_GITHUB_ID}
-  //     &client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
-    
-  //   //modificamos el state con los datos obtenidos
-  //   //this.setState({loading: false, users: res.data.items});
-  //   setLoading(false);
-  //   setUsers(res.data.items);
-  // }
-
-  /* const getUser = async username => {
-//    this.setState({loading: true});
-    setLoading(true);
-      
-    const res = await axios.get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
-    
-    //modificamos el state con los datos obtenidos
-    //this.setState({loading: false, user: res.data});
-    setLoading(false);
-    setUser(res.data);
-  }*/
-/*
-  const clearUsers = () => {
-    //this.setState({users : [], loading: false});
-    setUsers([]);
-    setLoading(false);
-  }
-*/
   const setMsgAlert = (msg,type) => {
     //this.setState({alert: {msg, type}});
     setAlert({msg,type});
@@ -78,9 +28,6 @@ const App = () => {
     }, 5000);
   }
 
-  // no lo usamos mas porque estamos usando setState use state
-//    const {users, user, loading, alert} = this.state;
-    
     return (
       //hacemos el wrap con el context api 
       <GithubState>
@@ -118,29 +65,6 @@ const App = () => {
       </Router>
       </GithubState>
     );
-
-    /* return (
-      <div className="App">   
-        <Navbar  />
-        <Clock />     
-        <Toggle />
-
-        <div className='container'>
-          <Calculator />
-        </div>
-
-        <div className='container'>
-          <User loading={this.state.loading} users={this.state.users}/>
-        </div>
-      </div>
-    );
- */  
 }
-/* OTRA FORMA DE ESCRIBIRLO
-    return React.createElement('div',{className :'App'},
-                          React.createElement('h1',null,'hola joaco'));
-}
-                          */  
-
 
 export default App;

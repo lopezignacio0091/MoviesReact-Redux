@@ -17,8 +17,6 @@ import Search from './components/layout/Search';
 
 const App = () => {
 
-  const [loading,setLoading] = useState(false);
-  const [user,setUser] = useState({});
   const [alert,setAlert] = useState(null);
 
   

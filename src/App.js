@@ -8,9 +8,7 @@ import User from './components/layout/Users/User';
 import Alert from './components/layout/Alert'
 
 import GithubState from './components/context/github/GithubState'
-//import Calculator from './components/layout/Calculator';
-//import Toggle from './components/layout/Toggle';
-//import Clock from './components/layout/Clock'
+
 
 import Search from './components/layout/Search';
 

@@ -2,8 +2,7 @@ import {
     SEARCH_USERS,
     SET_LOADING,
     CLEAR_USERS,
-    GET_USER,
-    GET_REPOS
+    GET_USER
 } from '../types';
 
 // recibimos el initial state de la app y las action representan lo que pasamos por parametro en el dispatch
@@ -12,6 +11,12 @@ export default (state,action) => {
     // y poder cambiarle los valores que queremos
     switch(action.type){
         case SEARCH_USERS:
+            return{
+                ...state,
+                loading: false,
+                users: action.payload
+            }
+        case GET_USER:
             return{
                 ...state,
                 loading: false,

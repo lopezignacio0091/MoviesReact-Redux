@@ -25,7 +25,14 @@ const GithubState = props => {
     const [state, dispatch] = useReducer(GithubReducer, initialState);
 
     // aca abajo definimos la implementacion de nuestras funciones por type
-    //GetUser
+    
+
+    const clearUsers = () => {       
+        setLoading();
+        dispatch({
+            type: CLEAR_USERS
+        })      
+    }    
 
     const searchUsers = async value => {
         setLoading();
@@ -55,7 +62,8 @@ const GithubState = props => {
         users: state.users,
         user: state.user,
         loading: state.loading,
-        searchUsers
+        searchUsers,
+        clearUsers
     }}
     >
         {props.children}

@@ -4,10 +4,11 @@ import GithubContext from '../../components/context/github/githubContext'
 
 //antes era una clase class Search bla bla
 // no usamos this.props porque lo deconstruimos en los parametros
-const Search  = ({clearUsers , showClear, setAlert}) => {
+const Search  = ({ setAlert }) => {
 
     //inicializamos el contexto de la app
     const githubContext = useContext(GithubContext);
+    const { users } = githubContext;
     // importamos useState
     //deconstruimos nuestro estado segun la cantidad de atributos que tenga
     const [text,setText] = useState('');
@@ -54,15 +55,14 @@ const Search  = ({clearUsers , showClear, setAlert}) => {
                 className='btn btn-dark btn-block'/>
 
             </form>
-            {showClear && <button className='btn btn-light btn-block' onClick={clearUsers}>Clear</button>}
+            {users.length > 0 && <button className='btn btn-light btn-block' onClick={clearUsers}>Clear</button>}
         </div>
     );
 }
 
 // lo ponemos aca porqeu cambiamos de clase a componente funcional
 Search.propTypes = {
-    clearUsers : PropTypes.func.isRequired,
-    showClear : PropTypes.bool.isRequired,
+
     setAlert : PropTypes.func.isRequired,
 }
 

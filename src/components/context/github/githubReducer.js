@@ -17,6 +17,12 @@ export default (state,action) => {
                 loading: false,
                 users: action.payload
             }
+        case CLEAR_USERS:
+            return{
+                ...state,
+                loading: false,
+                users: []
+            }
         case SET_LOADING:
             return{
                 ...state,

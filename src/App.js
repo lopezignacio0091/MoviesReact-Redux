@@ -1,16 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Navbar from './components/layout/Navbar';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import About from './components/pages/About'
-import Users from './components/layout/Users/Users';
 import User from './components/layout/Users/User';
-import Alert from './components/layout/Alert'
+import Alert from './components/layout/Alert';
+import Home from './components/pages/Home';
 
 import GithubState from './components/context/github/GithubState';
 import AlertState from './components/context/alert/AlertState';
 
-import Search from './components/layout/Search';
 
 const App = () => {
 
@@ -25,26 +24,12 @@ const App = () => {
 
               <Alert />
               <Switch>
-                <Route 
-                exact 
-                path='/' 
-                render={props => (
-                  <Fragment>
-                    <Search />
-
-                    <Users />
-        
-                  </Fragment>
-                )} />
-
+                <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
-
-                <Route 
-                exact 
-                path='/user/:login' 
-                render={props => (
-                  <User {...props} />       
-                               )} />
+                <Route exact path='/user/:login' 
+                  render={props => (
+                    <User {...props} />       
+                  )} />
               </Switch>
             </div>
         </div>

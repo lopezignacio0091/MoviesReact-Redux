@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import Navbar from './components/layout/Navbar';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -16,19 +16,7 @@ import Search from './components/layout/Search';
 
 const App = () => {
 
-  const [alert,setAlert] = useState(null);
-
-  const setMsgAlert = (msg,type) => {
-    //this.setState({alert: {msg, type}});
-    setAlert({msg,type});
-
-    setTimeout(() => {
-      //this.setState({alert : null})
-    setAlert(null);
-    }, 5000);
-  }
-
-    return (
+  return (
       //hacemos el wrap con el context api 
       <GithubState>
         <AlertState>
@@ -37,15 +25,14 @@ const App = () => {
           <Navbar />
             <div className='container'>
 
-              <Alert alert={alert} />
+              <Alert />
               <Switch>
                 <Route 
                 exact 
                 path='/' 
                 render={props => (
                   <Fragment>
-                    <Search  
-                      setAlert = {setMsgAlert} />
+                    <Search />
 
                     <Users />
         

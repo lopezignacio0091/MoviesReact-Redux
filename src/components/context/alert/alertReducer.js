@@ -9,14 +9,9 @@ export default (state,action) => {
     // y poder cambiarle los valores que queremos
     switch(action.type){
         case SET_ALERT:
-            return{
-                ...state,
-            }
+            return action.payload
         case REMOVE_ALERT:
-            return{
-                ...state,
-            }
-
+            return null
         default :
         return state;
     }

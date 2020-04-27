@@ -9,8 +9,6 @@ const Search  = () => {
     //inicializamos el contexto de la app
     const githubContext = useContext(GithubContext);
     const alertContext = useContext(AlertContext);
-
-    const { setAlert } = alertContext;
     const { users, clearUsers } = githubContext;
     // importamos useState
     //deconstruimos nuestro estado segun la cantidad de atributos que tenga
@@ -31,7 +29,7 @@ const Search  = () => {
         e.preventDefault();
         // eslint-disable-next-line eqeqeq
         if(text == ''){
-            setAlert('Please enter Something','light');
+            alertContext.setAlert('Please enter Something','light');
         }else{
         //pasamos el resultado del search para rriba como props
             githubContext.searchUsers(text);

@@ -10,9 +10,7 @@ import {
 
 const AlertState = props => {
     //global state para todo lo relacionado con github y su sestado
-    const initialState = {
-        alert : null
-    };
+    const initialState = null;
 
     // aca manejamos el ida y vuelta de los servicios o las acciones que llevemos a cabo
     const [state, dispatch] = useReducer(AlertReducer, initialState);
@@ -30,7 +28,7 @@ const AlertState = props => {
     return ( 
     <AlertContext.Provider
     value = {{
-        alert: state.alert,
+        alert: state,
         setAlert
     }}
     >

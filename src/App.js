@@ -10,8 +10,6 @@ import Alert from './components/layout/Alert'
 import GithubState from './components/context/github/GithubState';
 import AlertState from './components/context/alert/AlertState';
 
-
-
 import Search from './components/layout/Search';
 
 const App = () => {

@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
 import GithubContext from '../../components/context/github/githubContext'
 import AlertContext from '../../components/context/alert/alertContext'
 
@@ -64,9 +63,5 @@ const Search  = () => {
     );
 }
 
-// lo ponemos aca porqeu cambiamos de clase a componente funcional
-Search.propTypes = {
-    setAlert : PropTypes.func.isRequired,
-}
 
 export default Search

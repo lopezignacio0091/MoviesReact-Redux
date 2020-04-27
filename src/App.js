@@ -7,7 +7,9 @@ import Users from './components/layout/Users/Users';
 import User from './components/layout/Users/User';
 import Alert from './components/layout/Alert'
 
-import GithubState from './components/context/github/GithubState'
+import GithubState from './components/context/github/GithubState';
+import AlertState from './components/context/alert/AlertState';
+
 
 
 import Search from './components/layout/Search';
@@ -29,6 +31,7 @@ const App = () => {
     return (
       //hacemos el wrap con el context api 
       <GithubState>
+        <AlertState>
       <Router>
         <div className="App">   
           <Navbar />
@@ -61,6 +64,7 @@ const App = () => {
             </div>
         </div>
       </Router>
+      </AlertState>
       </GithubState>
     );
 }

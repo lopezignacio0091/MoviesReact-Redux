@@ -1,13 +1,17 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import GithubContext from '../../components/context/github/githubContext'
+import AlertContext from '../../components/context/alert/alertContext'
 
 //antes era una clase class Search bla bla
 // no usamos this.props porque lo deconstruimos en los parametros
-const Search  = ({ setAlert }) => {
+const Search  = () => {
 
     //inicializamos el contexto de la app
     const githubContext = useContext(GithubContext);
+    const alertContext = useContext(AlertContext);
+
+    const { setAlert } = alertContext;
     const { users, clearUsers } = githubContext;
     // importamos useState
     //deconstruimos nuestro estado segun la cantidad de atributos que tenga

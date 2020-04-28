@@ -6,7 +6,7 @@ import About from './components/pages/About'
 import User from './components/layout/Users/User';
 import Alert from './components/layout/Alert';
 import Home from './components/pages/Home';
-
+import NotFound from './components/pages/NotFound';
 import GithubState from './components/context/github/GithubState';
 import AlertState from './components/context/alert/AlertState';
 
@@ -30,6 +30,8 @@ const App = () => {
                   render={props => (
                     <User {...props} />       
                   )} />
+                <Route component={NotFound} />
+
               </Switch>
             </div>
         </div>

@@ -11,6 +11,18 @@ import {
     GET_USER
 } from '../types';
 
+let githubClientId;
+let githubClientSecret;
+
+if(process.env.NODE_ENV !== 'production'){
+    githubClientId = process.env.REACT_APP_GITHUB_ID;
+    githubClientSecret = process.env.REACT_APP_GITHUB_SECRET_ID;
+}else{
+    githubClientId = process.env.GITHUB_CLIENT_ID;
+    githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
+}
+
+
 const GithubState = props => {
     //global state para todo lo relacionado con github y su sestado
     const initialState = {
@@ -28,7 +40,7 @@ const GithubState = props => {
         //    this.setState({loading: true});
         setLoading();
             
-        const res = await axios.get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
+        const res = await axios.get(`https://api.github.com/users/${username}?client_id=${githubClientId}&client_secret=${githubClientSecret}`);
         
         //modificamos el state con los datos obtenidos
         //this.setState({loading: false, user: res.data});
@@ -50,8 +62,8 @@ const GithubState = props => {
        
         const res = await axios.get(
           `https://api.github.com/search/users?q=${value}&client_id=
-          ${process.env.REACT_APP_GITHUB_ID}
-          &client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`);
+          ${githubClientId}
+          &client_secret=${githubClientSecret}`);
         
         //setUsers(res.data.items);
         dispatch(

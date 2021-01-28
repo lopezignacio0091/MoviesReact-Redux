@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Store from './store';
+import store from './store';
 import WeatherBox from './components/layout/WeatherBox';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -21,7 +21,7 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <Provider store={Store}>
+    <Provider store={store}>
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12}>

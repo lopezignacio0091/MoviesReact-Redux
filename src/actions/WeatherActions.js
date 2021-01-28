@@ -10,7 +10,7 @@ export const getWeather = () => async dispatch => {
     try {
         setLoading();
 
-        const res = await fetch('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?q=London,us&appid='+KEY,{
+        const res = await fetch('https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?lat=-34.6132&lon=-58.3772&appid='+KEY,{
             headers : { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -21,7 +21,7 @@ export const getWeather = () => async dispatch => {
 
         dispatch({
             type: GET_WEATHER_DATA,
-            payload: data
+            payload: [data]
         });
 
     } catch (error) {

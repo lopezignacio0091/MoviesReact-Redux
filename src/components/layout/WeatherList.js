@@ -6,8 +6,8 @@ const WeatherList = ({weatherData}) => {
     return (
         <Fragment>
             {
-                weatherData.length > 0 && weatherData.map(item => (
-                    <WeatherItem />
+                weatherData.length > 0 && weatherData.map((item,index) => (
+                    <WeatherItem key={index} />
                 ))
             }
         </Fragment>

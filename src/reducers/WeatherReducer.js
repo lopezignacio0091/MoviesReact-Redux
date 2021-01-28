@@ -12,7 +12,8 @@ export default (state = initialState, action) => {
         case GET_WEATHER_DATA:
             return{
                 ...state,
-                weatherData: action.payload
+                weatherData: action.payload,
+                loading:false
             }
         case LOADING:
             return {

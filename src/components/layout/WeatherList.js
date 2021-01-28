@@ -1,27 +1,20 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
-import {getWeather} from '../../actions/WeatherActions';
+import React, {Fragment} from 'react';
 import WeatherItem from './WeatherItem';
 
-const WeatherList = ({weatherReducer: { loading, weatherData}}) => {
+const WeatherList = ({weatherData}) => {
     return (
-        <div>
+        <Fragment>
             {
                 weatherData.map(item => (
                     <WeatherItem />
                 ))
             }
-        </div>
+        </Fragment>
     );
 }
 
 WeatherList.propTypes = {
-    weatherReducer: PropTypes.object.isRequired,
+    weatherData: PropTypes.object.isRequired,
 }
 
-const mapStateProps = state => ({
-    weatherReducer: state.weatherReducer
-})
-
-export default connect(mapStateProps,{getWeather})(WeatherList);
+export default WeatherList;

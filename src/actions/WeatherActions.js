@@ -17,8 +17,7 @@ export const getWeather = () => async dispatch => {
                }
         });
         const data = await res.json();
-        console.log(data);
-
+       
         dispatch({
             type: GET_WEATHER_DATA,
             payload: [data]

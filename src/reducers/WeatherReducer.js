@@ -1,9 +1,9 @@
-import { LOADING,ERROR } from "../actions/types";
+import { LOADING,ERROR,GET_WEATHER_DATA } from "../actions/types";
 import { loading } from "../actions/WeatherActions";
 
 const initialState = {
-    loading = false,
-    error = '',
+    loading : false,
+    error : '',
     weatherData: {}
 };
 

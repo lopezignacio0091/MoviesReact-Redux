@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import Store from './store';
 import WeatherBox from './components/layout/WeatherBox';
+import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 

@@ -6,7 +6,7 @@ const WeatherList = ({weatherData}) => {
     return (
         <Fragment>
             {
-                weatherData.map(item => (
+                weatherData.length > 0 && weatherData.map(item => (
                     <WeatherItem />
                 ))
             }

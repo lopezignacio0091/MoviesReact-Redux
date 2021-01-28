@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {getWeather} from '../../actions/WeatherActions';
 import WeatherList from './WeatherList';
 
-const WeatherBox = ({weatherReducer: { loading, weatherData}}) => {
+const WeatherBox = ({weatherReducer: { loading, weatherData},getWeather}) => {
 
     useEffect(() => {
         getWeather();

@@ -3,12 +3,18 @@ import {connect} from 'react-redux'
 import {Container} from '@material-ui/core'
 import ResultList from './ResultList'
 import Progress from '../../pages/Loading'
+import Error from '../../pages/NotFound'
 
-const Movie=({searchReducer: {resultsMovies,loading}})=>{  
+const Result=({searchReducer: {resultsMovies,loading}})=>{  
 
     if(loading){
         return (
             <Progress/>
+        )
+    }
+    if(resultsMovies.length ==0){
+        return (
+            <Error/>
         )
     }
     return (
@@ -22,5 +28,6 @@ const mapStateProps = state => ({
     searchReducer: state.searchReducer
 })
 
-export default connect(mapStateProps,)(Movie);
+
+export default connect(mapStateProps,{})(Result);
 

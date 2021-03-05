@@ -48,6 +48,7 @@ cardDay:{
     width:400,
     height:550,
     padding:'2rem',
+    marginTop:'4rem',
     ...centeredStyleObj
 },
 containerCards:{
